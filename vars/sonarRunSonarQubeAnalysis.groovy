@@ -32,8 +32,6 @@ def call(Map config = [:]) {
  * 
  * Parameters:
  * - projectDir: (String) The directory of the project to be analyzed
- * - sonarProjectKey: (String) The unique identifier for the project in SonarQube
- * - sonarProjectName: (String) The name of the project in SonarQube
  */
 def runSonarQubeInDir(String projectDir) {
     dir(projectDir) {
@@ -44,8 +42,6 @@ def runSonarQubeInDir(String projectDir) {
         
         // Run SonarQube analysis after build
         echo "Running SonarQube analysis..."
-        sh """
-            ./gradlew sonarqube --info
-        """
+        sh './gradlew sonarqube --info'
     }
 }
