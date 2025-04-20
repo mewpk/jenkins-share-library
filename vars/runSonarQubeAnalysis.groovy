@@ -10,7 +10,7 @@
  * A SonarQube authentication token should be stored in Jenkins credentials and passed as the environment variable `SONAR_TOKEN`.
  * 
  * Example usage:
- * runSonarQubeAnalysis(
+ * sonarRunSonarQubeAnalysis(
  *     sonarEnv: 'sn1',
  *     projectDir: 'my-demo-app'
  * )
@@ -37,7 +37,7 @@ def call(Map config = [:]) {
  */
 def runSonarQubeInDir(String projectDir) {
     dir(projectDir) {
-        echo "Building and analyzing project ${sonarProjectName}..."
+        echo "Building and analyzing project ${projectDir}..."
 
         // Clean and build the project using Gradle
         sh './gradlew clean build'
